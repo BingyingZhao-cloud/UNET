@@ -4,7 +4,7 @@
 #图像路径配置
 TEST_IMAGE_DIR = './kaggle/input/deepglobe-road-extraction-dataset/test'
 
-TRAIN_IMAGE_DIR = './kaggle/input/deepglobe-road-extraction-dataset/train'
+TRAIN_IMAGE_DIR = '/kaggle/input/deepglobe-road-extraction-dataset/train'
 
 VALID_IMAGE_DIR = './kaggle/input/deepglobe-road-extraction-dataset/valid'
 
