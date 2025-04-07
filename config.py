@@ -2,16 +2,16 @@
 #------------------------------
 
 #图像路径配置
-TEST_IMAGE_DIR = './kaggle/input/deepglobe-road-extraction-dataset/test'
+TEST_IMAGE_DIR = '/kaggle/input/deepglobe-road-extraction-dataset/test'
 
 TRAIN_IMAGE_DIR = '/kaggle/input/deepglobe-road-extraction-dataset/train'
 
-VALID_IMAGE_DIR = './kaggle/input/deepglobe-road-extraction-dataset/valid'
+VALID_IMAGE_DIR = '/kaggle/input/deepglobe-road-extraction-dataset/valid'
 
 #标签路径配置
-TRAIN_MASK_DIR = './kaggle/input/deepglobe-road-extraction-dataset/train'
+TRAIN_MASK_DIR = '/kaggle/input/deepglobe-road-extraction-dataset/train'
 
-VALID_MASK_DIR = './kaggle/input/deepglobe-road-extraction-dataset/valid'
+VALID_MASK_DIR = '/kaggle/input/deepglobe-road-extraction-dataset/valid'
 #-------------------------------
 
 
