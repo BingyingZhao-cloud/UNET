@@ -44,7 +44,7 @@ MUM_CLASSES = 2 #类别数： 背景和通道
 #训练相关配置
 #-------------------------------
 
-BATCH_SIZE = 8 #每个batch的样本数，根据显存大小调整
+BATCH_SIZE = 2 #每个batch的样本数，根据显存大小调整
 NUM_EPOCHS = 50 #训练轮数
 LEARNING_RATE = 0.001 #学习率
 WEIGHT_DECAY = 1e-4 #权重衰减（正则化）
