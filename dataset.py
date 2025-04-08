@@ -28,37 +28,34 @@ class RoadSegmentationDataset(Dataset):
         self.transform = transform
         self.threshold = threshold
         self.has_mask = mask_dir is not None
-        
+
     def __len__(self):
         return len(self.image_list)
 
     def __getitem__(self, idx):
-        # 获取当前图像文件名
         image_name = self.image_list[idx]
-        # 根据文件名规则，构造对应的标签文件名
-        mask_name = image_name.replace('_sat.jpg', '_mask.png')
-
         image_path = os.path.join(self.image_dir, image_name)
-        mask_path = os.path.join(self.mask_dir, mask_name)
 
-        # 检查文件是否存在
-        if not os.path.exists(image_path):
-            raise FileNotFoundError(f"Image file not found: {image_path}")
-        if not os.path.exists(mask_path):
-            raise FileNotFoundError(f"Mask file not found: {mask_path}")
-
-        # 读取图像与标签
         image = Image.open(image_path).convert("RGB")
-        mask = Image.open(mask_path).convert("L")  # 灰度
 
-        # 二值化处理：将大于等于 threshold 的像素设为 1，其余为 0
-        mask_np = np.array(mask)
-        mask_bin = (mask_np >= self.threshold).astype(np.uint8)
+        if self.has_mask:
+            mask_name = image_name.replace('_sat.jpg', '_mask.png')
+            mask_path = os.path.join(self.mask_dir, mask_name)
 
-        # 应用 joint_transform 同步对 image 和 mask 进行变换（如 Resize 和 ToTensor）
-        image, mask_bin = self.transform(image, mask_bin)
+            if not os.path.exists(mask_path):
+                raise FileNotFoundError(f"Mask file not found: {mask_path}")
+            
+            mask = Image.open(mask_path).convert("L")
+            mask_np = np.array(mask)
+            mask_bin = (mask_np >= self.threshold).astype(np.uint8)
 
-        return image, mask_bin
+            image, mask_bin = self.transform(image, mask_bin)
+            return image, mask_bin
+        else:
+            # 无标签时只返回图像
+            image, _ = self.transform(image, None)
+            return image
+
 
 # 测试数据集加载
 if __name__ == '__main__':
