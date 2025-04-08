@@ -1,7 +1,7 @@
 import os
 import torch
 import torch.nn as nn
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, random_split
 from dataset import RoadSegmentationDataset
 from modules import UNet
 import config
