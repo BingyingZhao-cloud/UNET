@@ -27,7 +27,8 @@ class RoadSegmentationDataset(Dataset):
         self.image_list = sorted([f for f in os.listdir(image_dir) if f.endswith('_sat.jpg')])
         self.transform = transform
         self.threshold = threshold
-
+        self.has_mask = mask_dir is not None
+        
     def __len__(self):
         return len(self.image_list)
 

@@ -11,7 +11,7 @@ VALID_IMAGE_DIR = '/kaggle/input/deepglobe-road-extraction-dataset/valid'
 #标签路径配置
 TRAIN_MASK_DIR = '/kaggle/input/deepglobe-road-extraction-dataset/train'
 
-VALID_MASK_DIR = '/kaggle/input/deepglobe-road-extraction-dataset/valid'
+VALID_MASK_DIR = None
 #-------------------------------
 
 
@@ -45,7 +45,7 @@ MUM_CLASSES = 2 #类别数： 背景和通道
 #-------------------------------
 
 BATCH_SIZE = 2 #每个batch的样本数，根据显存大小调整
-NUM_EPOCHS = 50 #训练轮数
+NUM_EPOCHS = 20 #训练轮数
 LEARNING_RATE = 0.001 #学习率
 WEIGHT_DECAY = 1e-4 #权重衰减（正则化）
 MOMENTUM = 0.9 #动量参数
